@@ -1,39 +1,58 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+Need to handle error UI states in Flutter?🙄 No problem just use this simple Flutter package🤩
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+The package will show a simple error message with a title and a description. Optional you can also add a refresh method that will also show a refresh icon.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+# Getting started 🚀
+Just simply add the `error_text_widget` package to your dependencies:
+```yaml
+dependencies:
+  error_text_widget:
+    git:
+      url: https://github.com/musiolmarco/error_text_widget
+      ref: main
 ```
 
-## Additional information
+## Use the Widget 👉
+```dart
+ErrorTextWidget()
+```
+To say it simple: This is it. This will now show a basic error message with a title/description. 
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+<img src="https://github.com/musiolmarco/error_text_widget/assets/64715619/55fa2692-f759-48dc-9684-9db33c4fb421" width="300">
+
+Of course there is a lot of things you can customize. Let us take a look at it.
+
+
+## Refresh method 🔄
+You can add a `onRefresh` method. This will display a refresh `IconButton` which will execute this method. Here you can pass a method that will refetch some data for example if something failed.
+```dart
+ErrorTextWidget(
+   onRefresh: () => log('Refreshing data...'),
+),
+```
+<img src="https://github.com/musiolmarco/error_text_widget/assets/64715619/a995e582-3f8c-4f28-8d34-631d8b8d27b8" width="300">
+
+## Customize the Widget 🧑‍🎨
+```dart
+ErrorTextWidget(
+          titleText: 'This is a sample title',
+          titleFontStyle: const TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.redAccent,
+          ),
+          descriptionText: 'This is a sample description',
+          descriptionFontStyle: TextStyle(
+            color: Colors.redAccent[200],
+          ),
+          onRefreshIcon: Icon(
+            Icons.refresh,
+            color: Colors.redAccent[700],
+          ),
+          onRefresh: () => log('Refreshing data...'),
+        ),
+```
+The widget can be customized very easily. Take a look at this code snippet. With this code our Widget will look like this:
+<img src="https://github.com/musiolmarco/error_text_widget/assets/64715619/92102b4d-5210-47df-8ecb-5e78539013da" width="300">
+
+
