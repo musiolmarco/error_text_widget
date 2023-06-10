@@ -10,14 +10,14 @@ class ErrorTextWidget extends StatelessWidget {
   /// The [String] that is displayed at the top as title
   final String? titleText;
 
-  /// The [FontStyle] of the [titleText]
-  final FontStyle? titleFontStyle;
+  /// The [TextStyle] of the [titleText]
+  final TextStyle? titleFontStyle;
 
   /// The [String] that is displayed below the [titleText] as a smaller description
   final String? descriptionText;
 
-  /// The [FontStyle] of the [descriptionText]
-  final FontStyle? descriptionFontStyle;
+  /// The [TextStyle] of the [descriptionText]
+  final TextStyle? descriptionFontStyle;
 
   /// A method that will be executed if the user clicks on the refresh [Icon]
   ///
@@ -42,32 +42,34 @@ class ErrorTextWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text(
-          'An error occured',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24.0,
-          ),
+        Text(
+          titleText ?? 'An error occured',
+          style: titleFontStyle ??
+              const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24.0,
+              ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 15.0,
         ),
-        const Text(
-          'An error has occurred, please try again.',
+        Text(
+          descriptionText ?? 'An error has occurred, please try again.',
           textAlign: TextAlign.center,
+          style: descriptionFontStyle,
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15.0),
-          child: IconButton(
-            onPressed: () {
-              onRefresh;
-            },
-            icon: const Icon(
-              Icons.refresh,
+        if (onRefresh != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0),
+            child: IconButton(
+              onPressed: onRefresh,
+              icon: onRefreshIcon ??
+                  const Icon(
+                    Icons.refresh,
+                  ),
             ),
           ),
-        ),
       ],
     );
   }

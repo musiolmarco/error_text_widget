@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:error_text_widget/error_text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -6,9 +8,11 @@ class ExamplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: ErrorTextWidget(),
+        child: ErrorTextWidget(
+          onRefresh: () => log('Hello, World!'),
+        ),
       ),
     );
   }
