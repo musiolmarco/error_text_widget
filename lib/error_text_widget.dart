@@ -44,19 +44,28 @@ class ErrorTextWidget extends StatelessWidget {
       children: [
         const Text(
           'An error occured',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24.0,
+          ),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 15.0,
         ),
         const Text(
           'An error has occurred, please try again.',
+          textAlign: TextAlign.center,
         ),
-        IconButton(
-          onPressed: () {
-            onRefresh;
-          },
-          icon: const Icon(
-            Icons.refresh,
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: IconButton(
+            onPressed: () {
+              onRefresh;
+            },
+            icon: const Icon(
+              Icons.refresh,
+            ),
           ),
         ),
       ],
