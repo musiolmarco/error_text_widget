@@ -11,7 +11,21 @@ class ExamplePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: ErrorTextWidget(
-          onRefresh: () => log('Hello, World!'),
+          titleText: 'This is a sample title',
+          titleFontStyle: const TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.redAccent,
+          ),
+          descriptionText: 'This is a sample description',
+          descriptionFontStyle: TextStyle(
+            color: Colors.redAccent[200],
+          ),
+          onRefreshIcon: Icon(
+            Icons.refresh,
+            color: Colors.redAccent[700],
+          ),
+          onRefresh: () => log('Refreshing data...'),
         ),
       ),
     );
