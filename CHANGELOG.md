@@ -11,3 +11,5 @@ Adjusted license and documentation
 ## 2.0.0
 
 Added default values & setup method
+
+## Updated README 📄 (2.0.1)
