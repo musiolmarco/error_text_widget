@@ -1,6 +1,6 @@
 name: error_text_widget
 description: Displaying errors easy in Flutter
-version: 0.0.2
+version: 1.0.0
 homepage: https://github.com/musiolmarco/error_text_widget
 
 environment:

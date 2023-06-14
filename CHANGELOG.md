@@ -4,6 +4,6 @@
 
 Initial package release
 
-## 0.0.2
+## 1.0.0
 
 Adjusted license and documentation
