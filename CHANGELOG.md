@@ -1,3 +1,5 @@
+# error_text_widget Changelog
+
 ## 0.0.1
 
-* TODO: Describe initial release.
+Initial package release
