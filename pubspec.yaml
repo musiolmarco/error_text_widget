@@ -1,7 +1,7 @@
 name: error_text_widget
-description: A new Flutter package project.
+description: Displaying errors easy in Flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/musiolmarco/error_text_widget
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
