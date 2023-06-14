@@ -6,10 +6,7 @@ The package will show a simple error message with a title and a description. Opt
 Just simply add the `error_text_widget` package to your dependencies:
 ```yaml
 dependencies:
-  error_text_widget:
-    git:
-      url: https://github.com/musiolmarco/error_text_widget
-      ref: main
+  error_text_widget: <Newest version>
 ```
 
 ## Use the Widget 👉
