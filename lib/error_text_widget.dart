@@ -71,8 +71,8 @@ class ErrorTextWidget extends StatelessWidget {
     if (defaultTitleText != null) {
       _defaultTitleText = defaultTitleText;
     }
-    if (defaultDescriptionTextStyle != null) {
-      _defaultDescriptionTextStyle = defaultDescriptionTextStyle;
+    if (defaultTitleTextStyle != null) {
+      _defaultTitleTextStyle = defaultTitleTextStyle;
     }
     if (defaultDescriptionText != null) {
       _defaultDescriptionText = defaultDescriptionText;
