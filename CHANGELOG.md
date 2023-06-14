@@ -1,3 +1,9 @@
+# error_text_widget Changelog
+
 ## 0.0.1
 
-* TODO: Describe initial release.
+Initial package release
+
+## 1.0.0
+
+Adjusted license and documentation

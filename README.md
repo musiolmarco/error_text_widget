@@ -53,6 +53,7 @@ ErrorTextWidget(
         ),
 ```
 The widget can be customized very easily. Take a look at this code snippet. With this code our Widget will look like this:
+
 <img src="https://github.com/musiolmarco/error_text_widget/assets/64715619/92102b4d-5210-47df-8ecb-5e78539013da" width="300">
 
 
