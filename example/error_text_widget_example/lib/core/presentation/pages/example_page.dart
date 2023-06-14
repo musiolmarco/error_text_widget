@@ -12,13 +12,13 @@ class ExamplePage extends StatelessWidget {
       body: Center(
         child: ErrorTextWidget(
           titleText: 'This is a sample title',
-          titleFontStyle: const TextStyle(
+          titleTextStyle: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
             color: Colors.redAccent,
           ),
           descriptionText: 'This is a sample description',
-          descriptionFontStyle: TextStyle(
+          descriptionTextStyle: TextStyle(
             color: Colors.redAccent[200],
           ),
           onRefreshIcon: Icon(
