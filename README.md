@@ -22,7 +22,6 @@ To say it simple: This is it. This will now show a basic error message with a ti
 
 Of course there is a lot of things you can customize. Let us take a look at it.
 
-
 ## Refresh method 🔄
 You can add a `onRefresh` method. This will display a refresh `IconButton` which will execute this method. Here you can pass a method that will refetch some data for example if something failed.
 ```dart
@@ -55,5 +54,30 @@ ErrorTextWidget(
 The widget can be customized very easily. Take a look at this code snippet. With this code our Widget will look like this:
 
 <img src="https://github.com/musiolmarco/error_text_widget/assets/64715619/92102b4d-5210-47df-8ecb-5e78539013da" width="300">
+
+## Widget setup (optional)📥
+```dart
+void main() {
+  ErrorTextWidget.setup(
+    defaultTitleText: 'This is a sample title',
+    defaultTitleTextStyle: const TextStyle(
+      color: Colors.redAccent,
+      fontWeight: FontWeight.bold,
+      fontSize: 24.0,
+    ),
+    defaultDescriptionText: 'This is a sample description',
+    defaultDescriptionTextStyle: const TextStyle(
+      color: Colors.redAccent,
+    ),
+    defaultOnRefreshIcon: const Icon(
+      Icons.refresh_rounded,
+      color: Colors.redAccent,
+    ),
+  );
+
+  runApp(const MyApp());
+}
+```
+This is just an optional, but a very useful step: You can use the `ErrorTextWidget.setup();` method in the `main(){}` method to change and set the default values to your preferences. With this you can adjust the package to match your app design for example.
 
 
