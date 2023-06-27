@@ -81,11 +81,10 @@ This is just an optional, but a very useful step: You can use the `ErrorTextWidg
 ```dart
 builder: (context, child) {
             ErrorTextWidget.setup(
-              defaultTitleText: context.localization.error,
-              defaultDescriptionText:
-                  context.localization.an_error_occured,
-              defaultTitleTextStyle: AppTextStyles.appBarTitle,
-              defaultDescriptionTextStyle: AppTextStyles.content,
+              defaultTitleText: AppLocalizations.of(context)!.errorTitle,
+              defaultDescriptionText: AppLocalizations.of(context)!.errorDescription,
+              defaultTitleTextStyle: AppTextStyles.title,
+              defaultDescriptionTextStyle: AppTextStyles.description,
             );
 
         return child;

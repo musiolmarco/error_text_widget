@@ -15,3 +15,5 @@ Added default values & setup method
 ## Updated README 📄 (2.0.1)
 
 ## Added tip to README 📄 (2.0.2)
+
+## Adjusted README 📄 (2.0.3)
