@@ -75,6 +75,20 @@ void main() {
   runApp(const MyApp());
 }
 ```
-This is just an optional, but a very useful step: You can use the `ErrorTextWidget.setup();` method in the `main(){}` method to change and set the default values to your preferences. With this you can adjust the package to match your app design for example.
+This is just an optional, but a very useful step: You can use the `ErrorTextWidget.setup();` method in the `main(){}`, method to change and set the default values to your preferences. With this you can adjust the package to match your app design for example.
 
+### Tip: Using AppLocalization for setup❗️
+```dart
+builder: (context, child) {
+            ErrorTextWidget.setup(
+              defaultTitleText: context.localization.error,
+              defaultDescriptionText:
+                  context.localization.an_error_occured,
+              defaultTitleTextStyle: AppTextStyles.appBarTitle,
+              defaultDescriptionTextStyle: AppTextStyles.content,
+            );
 
+        return child;
+}
+```
+If you want to use a text from your localiztion files, you can not use it in the `main()` method, because you don't have access to the `BuildContext` here. In this case you can use the `builder()` method of your `MaterialApp()` as described above.
