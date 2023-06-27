@@ -7,17 +7,38 @@ import 'package:flutter/material.dart';
 /// It's also available to pass a function that is used to execute a method again
 /// (For example fetching some data if it failed)
 class ErrorTextWidget extends StatelessWidget {
+  /// The static title that will be used if no [titleText] is passed
+  static String _defaultTitleText = 'An error occured';
+
+  /// The static title [TextStyle] that will be used if no [titleTextStyle] is passed
+  static TextStyle _defaultTitleTextStyle = const TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 24.0,
+  );
+
+  /// The static description that will be used if no [descriptionText] is passed
+  static String _defaultDescriptionText =
+      'An error has occurred, please try again.';
+
+  /// The static description [TextStyle] that will be used if no [descriptionTextStyle] is passed
+  static TextStyle? _defaultDescriptionTextStyle;
+
+  /// The static default [Icon] that executes the [onRefresh] method
+  static Icon _defaultOnRefreshIcon = const Icon(
+    Icons.refresh,
+  );
+
   /// The [String] that is displayed at the top as title
   final String? titleText;
 
   /// The [TextStyle] of the [titleText]
-  final TextStyle? titleFontStyle;
+  final TextStyle? titleTextStyle;
 
   /// The [String] that is displayed below the [titleText] as a smaller description
   final String? descriptionText;
 
   /// The [TextStyle] of the [descriptionText]
-  final TextStyle? descriptionFontStyle;
+  final TextStyle? descriptionTextStyle;
 
   /// A method that will be executed if the user clicks on the refresh [Icon]
   ///
@@ -30,12 +51,39 @@ class ErrorTextWidget extends StatelessWidget {
   const ErrorTextWidget({
     super.key,
     this.titleText,
-    this.titleFontStyle,
+    this.titleTextStyle,
     this.descriptionText,
-    this.descriptionFontStyle,
+    this.descriptionTextStyle,
     this.onRefresh,
     this.onRefreshIcon,
   });
+
+  /// This method can be used to setup default values for the widget
+  ///
+  /// It will change the static default values
+  static void setup({
+    String? defaultTitleText,
+    TextStyle? defaultTitleTextStyle,
+    String? defaultDescriptionText,
+    TextStyle? defaultDescriptionTextStyle,
+    Icon? defaultOnRefreshIcon,
+  }) {
+    if (defaultTitleText != null) {
+      _defaultTitleText = defaultTitleText;
+    }
+    if (defaultTitleTextStyle != null) {
+      _defaultTitleTextStyle = defaultTitleTextStyle;
+    }
+    if (defaultDescriptionText != null) {
+      _defaultDescriptionText = defaultDescriptionText;
+    }
+    if (defaultDescriptionTextStyle != null) {
+      _defaultDescriptionTextStyle = defaultDescriptionTextStyle;
+    }
+    if (defaultOnRefreshIcon != null) {
+      _defaultOnRefreshIcon = defaultOnRefreshIcon;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,31 +91,24 @@ class ErrorTextWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          titleText ?? 'An error occured',
-          style: titleFontStyle ??
-              const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24.0,
-              ),
+          titleText ?? _defaultTitleText,
+          style: titleTextStyle ?? _defaultTitleTextStyle,
           textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 15.0,
         ),
         Text(
-          descriptionText ?? 'An error has occurred, please try again.',
+          descriptionText ?? _defaultDescriptionText,
           textAlign: TextAlign.center,
-          style: descriptionFontStyle,
+          style: descriptionTextStyle ?? _defaultDescriptionTextStyle,
         ),
         if (onRefresh != null)
           Padding(
             padding: const EdgeInsets.only(top: 15.0),
             child: IconButton(
               onPressed: onRefresh,
-              icon: onRefreshIcon ??
-                  const Icon(
-                    Icons.refresh,
-                  ),
+              icon: onRefreshIcon ?? _defaultOnRefreshIcon,
             ),
           ),
       ],
