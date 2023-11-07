@@ -48,6 +48,12 @@ class ErrorTextWidget extends StatelessWidget {
   /// Customize the [Icon] that is displayed for executing the [onRefresh] method
   final Icon? onRefreshIcon;
 
+  /// [TextOverflow] for the description text widget
+  final TextOverflow? descriptionTextOverflow;
+
+  /// [TextOverflow] for the title text widget
+  final TextOverflow? titleTextOverflow;
+
   const ErrorTextWidget({
     super.key,
     this.titleText,
@@ -56,6 +62,8 @@ class ErrorTextWidget extends StatelessWidget {
     this.descriptionTextStyle,
     this.onRefresh,
     this.onRefreshIcon,
+    this.titleTextOverflow,
+    this.descriptionTextOverflow,
   });
 
   /// This method can be used to setup default values for the widget
@@ -90,18 +98,24 @@ class ErrorTextWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          titleText ?? _defaultTitleText,
-          style: titleTextStyle ?? _defaultTitleTextStyle,
-          textAlign: TextAlign.center,
+        Flexible(
+          child: Text(
+            titleText ?? _defaultTitleText,
+            style: titleTextStyle ?? _defaultTitleTextStyle,
+            textAlign: TextAlign.center,
+            overflow: titleTextOverflow,
+          ),
         ),
         const SizedBox(
           height: 15.0,
         ),
-        Text(
-          descriptionText ?? _defaultDescriptionText,
-          textAlign: TextAlign.center,
-          style: descriptionTextStyle ?? _defaultDescriptionTextStyle,
+        Flexible(
+          child: Text(
+            descriptionText ?? _defaultDescriptionText,
+            textAlign: TextAlign.center,
+            style: descriptionTextStyle ?? _defaultDescriptionTextStyle,
+            overflow: descriptionTextOverflow,
+          ),
         ),
         if (onRefresh != null)
           Padding(
