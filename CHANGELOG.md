@@ -17,3 +17,5 @@ Added default values & setup method
 ## Added tip to README 📄 (2.0.2)
 
 ## Adjusted README 📄 (2.0.3)
+
+## Added TextOverflow options 💬 (3.0.0)
