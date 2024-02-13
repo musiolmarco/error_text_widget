@@ -21,3 +21,5 @@ Added default values & setup method
 ## Added TextOverflow options 💬 (3.0.0)
 
 ## Added TextOverflow options to setup 📤 (3.0.1)
+
+## Added custom color for text widgets 🎨 (3.1.0)
