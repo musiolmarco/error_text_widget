@@ -60,6 +60,12 @@ class ErrorTextWidget extends StatelessWidget {
   /// [TextOverflow] for the title text widget
   final TextOverflow? titleTextOverflow;
 
+  /// [Color] that will overwrite the title [TextStyle] color
+  final Color? titleColor;
+
+  /// [Color] that will overwrite the description [TextStyle] color
+  final Color? descriptionColor;
+
   const ErrorTextWidget({
     super.key,
     this.titleText,
@@ -70,6 +76,8 @@ class ErrorTextWidget extends StatelessWidget {
     this.onRefreshIcon,
     this.titleTextOverflow,
     this.descriptionTextOverflow,
+    this.descriptionColor,
+    this.titleColor,
   });
 
   /// This method can be used to setup default values for the widget
@@ -115,7 +123,12 @@ class ErrorTextWidget extends StatelessWidget {
         Flexible(
           child: Text(
             titleText ?? _defaultTitleText,
-            style: titleTextStyle ?? _defaultTitleTextStyle,
+            style: titleTextStyle?.copyWith(
+                  color: titleColor,
+                ) ??
+                _defaultTitleTextStyle.copyWith(
+                  color: titleColor,
+                ),
             textAlign: TextAlign.center,
             overflow: _defaultTitleTextOverflow ?? titleTextOverflow,
           ),
@@ -127,7 +140,10 @@ class ErrorTextWidget extends StatelessWidget {
           child: Text(
             descriptionText ?? _defaultDescriptionText,
             textAlign: TextAlign.center,
-            style: descriptionTextStyle ?? _defaultDescriptionTextStyle,
+            style: descriptionTextStyle?.copyWith(color: descriptionColor) ??
+                _defaultDescriptionTextStyle?.copyWith(
+                  color: descriptionColor,
+                ),
             overflow:
                 _defaultDescriptionTextOverflow ?? descriptionTextOverflow,
           ),
