@@ -28,6 +28,12 @@ class ErrorTextWidget extends StatelessWidget {
     Icons.refresh,
   );
 
+  /// The static default [TextOverflow] for the title
+  static TextOverflow? _defaultTitleTextOverflow;
+
+  /// The static default [TextOverflow] for the description
+  static TextOverflow? _defaultDescriptionTextOverflow;
+
   /// The [String] that is displayed at the top as title
   final String? titleText;
 
@@ -75,6 +81,8 @@ class ErrorTextWidget extends StatelessWidget {
     String? defaultDescriptionText,
     TextStyle? defaultDescriptionTextStyle,
     Icon? defaultOnRefreshIcon,
+    TextOverflow? defaultTitleTextOverflow,
+    TextOverflow? defaultDescriptionTextOverflow,
   }) {
     if (defaultTitleText != null) {
       _defaultTitleText = defaultTitleText;
@@ -91,6 +99,12 @@ class ErrorTextWidget extends StatelessWidget {
     if (defaultOnRefreshIcon != null) {
       _defaultOnRefreshIcon = defaultOnRefreshIcon;
     }
+    if (defaultTitleTextOverflow != null) {
+      _defaultTitleTextOverflow = defaultTitleTextOverflow;
+    }
+    if (defaultDescriptionTextOverflow != null) {
+      _defaultDescriptionTextOverflow = defaultDescriptionTextOverflow;
+    }
   }
 
   @override
@@ -103,7 +117,7 @@ class ErrorTextWidget extends StatelessWidget {
             titleText ?? _defaultTitleText,
             style: titleTextStyle ?? _defaultTitleTextStyle,
             textAlign: TextAlign.center,
-            overflow: titleTextOverflow,
+            overflow: _defaultTitleTextOverflow ?? titleTextOverflow,
           ),
         ),
         const SizedBox(
@@ -114,7 +128,8 @@ class ErrorTextWidget extends StatelessWidget {
             descriptionText ?? _defaultDescriptionText,
             textAlign: TextAlign.center,
             style: descriptionTextStyle ?? _defaultDescriptionTextStyle,
-            overflow: descriptionTextOverflow,
+            overflow:
+                _defaultDescriptionTextOverflow ?? descriptionTextOverflow,
           ),
         ),
         if (onRefresh != null)
